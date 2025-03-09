@@ -46,34 +46,40 @@ const PostsPage: React.FC = () => {
   }, [loading]);
 
   return (
-    <div
-      ref={containerRef}
-      className="h-full mx-auto px-4 overflow-y-auto scroll-container"
-    
-    >
-      <h1 className="text-2xl font-bold ">Posts</h1>
-      <ul>
-        {posts.map((post, index) => (
-          <li
-            key={index}
-            className="p-4 mb-2 bg-gray-100 rounded shadow transition hover:shadow-md"
-          >
-            <h2 className="font-semibold">{post.title}</h2>
-            <p>Likes: {post?.reactions?.likes}</p>
-            <p>Disikes: {post?.reactions?.dislikes}</p>
-            <p>User ID: {post.userId}</p>
-          </li>
-        ))}
-      </ul>
-      {error && <div className="text-red-500 text-center my-4">{error}</div>}
-      {loading && (
-        <div className="flex flex-col gap-2 relative z-0 ">
-          <PostLoader lines={2} />
-          <PostLoader lines={2} />
-          <PostLoader lines={2} />
-        </div>
-      )}
-    </div>
+    <>
+      <div className="text-2xl font-bold px-5 py-3 text-gray-600">Posts</div>
+
+      <div
+        ref={containerRef}
+        className="h-full mx-auto px-4 overflow-y-auto scroll-container  "
+      >
+        {/* <h1 className="text-2xl font-bold ">Posts</h1> */}
+        <ul>
+          {posts.map((post, index) => (
+            <li
+              key={index}
+              className=" p-4 mb-2 bg-gray-100 rounded shadow transition hover:shadow-md"
+            >
+              <h2 className="font-semibold text-gray-800">{post.title}</h2>
+              <div className="text-gray-500 text-sm flex flex-col ">
+
+              <p>Likes: {post?.reactions?.likes}</p>
+              <p>Disikes: {post?.reactions?.dislikes}</p>
+              <p>User ID: {post.userId}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        {error && <div className="text-red-500 text-center my-4">{error}</div>}
+        {loading && (
+          <div className="flex flex-col gap-2 relative z-0 ">
+            <PostLoader lines={2} />
+            <PostLoader lines={2} />
+            <PostLoader lines={2} />
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

@@ -5,7 +5,6 @@ interface Iprops {
 }
 
 const Countdown = ({ isPauseCountdown }: Iprops) => {
-  console.log(isPauseCountdown);
   
   const [countdown, setCountdown] = useState(600);
   const intervalRef = useRef<number | null>(null);

@@ -19,6 +19,8 @@ const Navbar = () => {
 
   return (
     <>
+
+    
       <div className="relative w-full flex justify-between h-12 px-4">
         {/* dropdown for sm devices */}
 
@@ -127,6 +129,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      
 
       {/* Modal Component */}
 
